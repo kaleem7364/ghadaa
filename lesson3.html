@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسمة الكسور العشرية - الصف السادس</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        :root {
+            --pink-light: #ff9a9e;
+            --pink-lighter: #fad0c4;
+            --purple-light: #a18cd1;
+            --pink-dark: #e91e63;
+            --pink-darker: #ad1457;
+            --blue-dark: #4b6cb7;
+            --blue-darker: #182848;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffeef8 100%);
+            margin: 0;
+            padding: 0;
+            color: #555;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--pink-lighter) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid var(--pink-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23fad0c4"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23fad0c4"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23fad0c4"></path></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: white;
+            color: var(--purple-light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .back-btn:hover {
+            background: var(--pink-lighter);
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid #f8bbd0;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--purple-light), var(--pink-lighter), var(--pink-light));
+        }
+        
+        /* Lesson Title */
+        .lesson-title {
+            color: var(--purple-light);
+            text-align: center;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed var(--purple-light);
+            font-size: 28px;
+            position: relative;
+        }
+        
+        .lesson-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--purple-light), var(--pink-light));
+            border-radius: 2px;
+        }
+        
+        /* Content Styles */
+        .content-section {
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            color: var(--blue-dark);
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-right: 15px;
+            border-right: 4px solid var(--purple-light);
+        }
+        
+        /* Steps */
+        .steps {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid var(--purple-light);
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            background: rgba(161, 140, 209, 0.1);
+        }
+        
+        .step-number {
+            background: var(--purple-light);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        /* Examples */
+        .example {
+            background: #f5f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-right: 5px solid var(--purple-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example::before {
+            content: "مثال";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--purple-light);
+            color: white;
+            padding: 5px 15px;
+            border-bottom-left-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .example-title {
+            color: var(--blue-darker);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        /* Practice */
+        .practice {
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid var(--blue-dark);
+        }
+        
+        .practice-title {
+            color: var(--blue-dark);
+            margin-top: 0;
+            text-align: center;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .practice-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-dark), var(--blue-darker));
+            border-radius: 3px;
+        }
+        
+        .exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--purple-light), var(--pink-lighter));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(161, 140, 209, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(45deg, var(--pink-lighter), var(--purple-light));
+            box-shadow: 0 6px 15px rgba(161, 140, 209, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Solution */
+        .solution {
+            display: none;
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px dashed var(--purple-light);
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+        
+        .solution-title {
+            color: var(--blue-darker);
+            margin-top: 0;
+            font-weight: bold;
+        }
+        
+        /* Interactive Tools */
+        .interactive-tool {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed #ba68c8;
+        }
+        
+        .interactive-title {
+            color: #7b1fa2;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        
+        input[type="number"] {
+            padding: 10px;
+            border: 2px solid var(--purple-light);
+            border-radius: 8px;
+            width: 100px;
+            text-align: center;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        input[type="number"]:focus {
+            border-color: var(--pink-light);
+            box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.3);
+            outline: none;
+        }
+        
+        .result {
+            font-weight: bold;
+            color: var(--blue-darker);
+            margin-top: 15px;
+            font-size: 18px;
+            min-height: 27px;
+        }
+        
+        /* Visual Examples */
+        .visual-example {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .division-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid var(--purple-light);
+        }
+        
+        .division-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Floating Shapes */
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+        
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            background: var(--purple-light);
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            top: 60%;
+            left: 70%;
+            width: 100px;
+            height: 100px;
+            background: var(--pink-light);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            top: 30%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background: var(--pink-lighter);
+            border-radius: 20% 80% 20% 80% / 80% 20% 80% 20%;
+            animation-delay: 4s;
+        }
+        
+        /* Animated Character */
+        .animated-girl {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            background: url('https://i.imgur.com/JfLbRqG.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Celebration */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--purple-light);
+            opacity: 0;
+            z-index: 999;
+            animation: confetti 5s ease-in-out;
+        }
+        
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .celebration h2 {
+            color: var(--purple-light);
+            font-size: 36px;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .celebration img {
+            width: 200px;
+            height: auto;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-darker));
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%234b6cb7"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%234b6cb7"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%234b6cb7"></path></svg>');
+            background-size: cover;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animation {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .lesson-title {
+                font-size: 24px;
+            }
+            
+            .visual-example {
+                flex-direction: column;
+            }
+            
+            .animated-girl {
+                width: 80px;
+                height: 80px;
+                right: 10px;
+                bottom: 10px;
+            }
+            
+            .celebration h2 {
+                font-size: 24px;
+                padding: 0 15px;
+            }
+            
+            .celebration img {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="header animation">
+        <button class="back-btn" onclick="window.location.href='index.html'">
+            <span>العودة</span>
+        </button>
+        <h1>الدرس الثاني: قسمة الكسور العشرية</h1>
+    </div>
+
+    <div class="container animation">
+        <h2 class="lesson-title">شرح مفهوم قسمة الكسور العشرية</h2>
+        
+        <div class="content-section">
+            <p>لقسمة كسر عشري على آخر، نتبع الخطوات التالية:</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">نحرك الفاصلة العشرية في المقسوم عليه (المقسوم عليه هو العدد الذي نقسم عليه) لليمين حتى يصبح عدداً صحيحاً</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">نحرك الفاصلة العشرية في المقسوم (العدد الذي يتم قسمته) بنفس عدد المرات إلى اليمين</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">نقوم بعملية القسمة الطويلة كما نعرفها على الأعداد الصحيحة</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">نضع الفاصلة العشرية في الناتج فوق الفاصلة في المقسوم بعد تحريكها</div>
+                </div>
+            </div>
+
+            <div class="visual-example">
+                <div class="division-box">
+                    <div style="font-size: 20px; margin-bottom: 10px;">1.5 ÷ 0.5</div>
+                    <div style="font-size: 24px; color: var(--purple-light); margin: 10px 0;">↓</div>
+                    <div style="margin-bottom: 10px;">نحرك الفاصلة مكان واحد في المقسوم عليه والمقسوم</div>
+                    <div style="font-size: 24px; color: var(--purple-light); margin: 10px 0;">↓</div>
+                    <div style="font-size: 20px;">15 ÷ 5 = 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="section-title">أمثلة تطبيقية</h3>
+            
+            <div class="example">
+                <h4 class="example-title">مثال 1:</h4>
+                <p>احسب ناتج قسمة 0.6 ÷ 0.2</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">المقسوم عليه هو 0.2، نحرك الفاصلة مكان واحد لليمين: 0.2 ← 2</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">نحرك الفاصلة في المقسوم 0.6 مكان واحد: 0.6 ← 6</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">نقوم بالقسمة: 6 ÷ 2 = 3</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">الناتج هو 3</div>
+                    </div>
+                </div>
+                
+                <p><strong>الجواب:</strong> 0.6 ÷ 0.2 = <span class="answer-highlight">3</span></p>
+            </div>
+
+            <div class="example">
+                <h4 class="example-title">مثال 2:</h4>
+                <p>احسب ناتج قسمة 4.5 ÷ 0.15</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">المقسوم عليه هو 0.15، نحرك الفاصلة مكانين لليمين: 0.15 ← 15</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">نحرك الفاصلة في المقسوم 4.5 مكانين: 4.5 ← 450</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">نقوم بالقسمة: 450 ÷ 15 = 30</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">الناتج هو 30</div>
+                    </div>
+                </div>
+                
+                <p><strong>الجواب:</strong> 4.5 ÷ 0.15 = <span class="answer-highlight">30</span></p>
+            </div>
+        </div>
+
+        <div class="interactive-tool">
+            <h3 class="interactive-title">جرب بنفسك: آلة حاسبة لقسمة الكسور العشرية</h3>
+            <div style="margin: 20px 0;">
+                <input type="number" step="0.01" id="decimal1" placeholder="أدخل المقسوم">
+                <span style="font-size: 20px; margin: 0 10px;">÷</span>
+                <input type="number" step="0.01" id="decimal2" placeholder="أدخل المقسوم عليه">
+            </div>
+            <button class="btn" onclick="calculateDivide()">احسب الناتج</button>
+            <div id="divideResult" class="result"></div>
+        </div>
+
+        <div class="practice">
+            <h3 class="practice-title">تمارين تطبيقية</h3>
+            
+            <div class="exercise">
+                <p>1) احسب ناتج قسمة 1.2 ÷ 0.3</p>
+                <button class="btn" onclick="showSolution(1)">عرض الحل</button>
+                <div id="solution1" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">المقسوم عليه 0.3 ← 3 (تحريك فاصلة مكان واحد)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">المقسوم 1.2 ← 12 (تحريك فاصلة مكان واحد)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">12 ÷ 3 = 4</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 4</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>2) احسب ناتج قسمة 0.75 ÷ 0.25</p>
+                <button class="btn" onclick="showSolution(2)">عرض الحل</button>
+                <div id="solution2" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">المقسوم عليه 0.25 ← 25 (تحريك فاصلة مكانين)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">المقسوم 0.75 ← 75 (تحريك فاصلة مكانين)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">75 ÷ 25 = 3</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 3</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>3) إذا كان طول قطعة قماش 4.8 متر وقُسمت إلى قطع طول كل منها 0.6 متر، فكم عدد القطع؟</p>
+                <button class="btn" onclick="showSolution(3)">عرض الحل</button>
+                <div id="solution3" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>عدد القطع = الطول الكلي ÷ طول القطعة الواحدة = 4.8 ÷ 0.6</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">المقسوم عليه 0.6 ← 6 (تحريك فاصلة مكان واحد)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">المقسوم 4.8 ← 48 (تحريك فاصلة مكان واحد)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">48 ÷ 6 = 8 قطع</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 8 قطع</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>4) اشترى خالد 3.6 كيلو جرام من السكر بمبلغ 7.2 دينار، كم سعر الكيلو جرام الواحد؟</p>
+                <button class="btn" onclick="showSolution(4)">عرض الحل</button>
+                <div id="solution4" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>سعر الكيلو = المبلغ الكلي ÷ الكمية = 7.2 ÷ 3.6</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">المقسوم عليه 3.6 ← 36 (تحريك فاصلة مكان واحد)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">المقسوم 7.2 ← 72 (تحريك فاصلة مكان واحد)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">72 ÷ 36 = 2 دينار للكيلو</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 2 دينار للكيلو</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>5) احسب ناتج قسمة 0.144 ÷ 0.12</p>
+                <button class="btn" onclick="showSolution(5)">عرض الحل</button>
+                <div id="solution5" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">المقسوم عليه 0.12 ← 12 (تحريك فاصلة مكانين)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">المقسوم 0.144 ← 14.4 (تحريك فاصلة مكانين)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">14.4 ÷ 12 = 1.2</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 1.2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animated-girl" id="animatedGirl" onclick="celebrate()"></div>
+
+    <div class="celebration" id="celebration">
+        <h2>أحسنتِ! أنتِ رائعة!</h2>
+        <img src="https://i.imgur.com/qJZtKlK.jpg" alt="تهنئة">
+        <button onclick="closeCelebration()" style="margin-top: 20px; padding: 10px 20px; background: #a18cd1; color: white; border: none; border-radius: 50px; cursor: pointer;">استمراري</button>
+    </div>
+
+    <div class="footer">
+        <p>إعداد: د. غادة لنيل شهادة الماستر</p>
+        <p>© 2023 منصة تعليمية مبتكرة</p>
+    </div>
+
+    <script>
+        // حل التمارين وعرض الحلول
+        function showSolution(num) {
+            var solution = document.getElementById('solution' + num);
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+            } else {
+                solution.style.display = 'block';
+                
+                // عرض رسالة تشجيعية عشوائية
+                const messages = [
+                    "أحسنتِ! هذا رائع!",
+                    "إجابة صحيحة، أنتِ ذكية!",
+                    "استمري هكذا، أنتِ متميزة!",
+                    "عمل رائع! يمكنكِ حل الباقي أيضاً",
+                    "برافو! هذه الإجابة الصحيحة",
+                    "أنتِ تستحقين نجمة ذهبية!",
+                    "إجابة ممتازة! أنتِ تفهمين جيداً"
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                
+                // إنشاء عنصر الرسالة
+                const messageElement = document.createElement('div');
+                messageElement.textContent = randomMessage;
+                messageElement.style.position = 'fixed';
+                messageElement.style.bottom = '200px';
+                messageElement.style.right = '50px';
+                messageElement.style.backgroundColor = '#f3e5f5';
+                messageElement.style.color = '#7b1fa2';
+                messageElement.style.padding = '10px 20px';
+                messageElement.style.borderRadius = '50px';
+                messageElement.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+                messageElement.style.zIndex = '1000';
+                messageElement.style.fontWeight = 'bold';
+                messageElement.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s forwards';
+                
+                document.body.appendChild(messageElement);
+                
+                // إزالة الرسالة بعد 3 ثوان
+                setTimeout(() => {
+                    messageElement.style.animation = 'fadeOut 0.5s forwards';
+                    setTimeout(() => {
+                        messageElement.remove();
+                    }, 500);
+                }, 3000);
+            }
+        }
+        
+        // آلة حاسبة القسمة
+        function calculateDivide() {
+            var num1 = parseFloat(document.getElementById('decimal1').value);
+            var num2 = parseFloat(document.getElementById('decimal2').value);
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('divideResult').innerHTML = 'الرجاء إدخال عددين صحيحين';
+                return;
+            }
+            
+            if (num2 === 0) {
+                document.getElementById('divideResult').innerHTML = 'لا يمكن القسمة على صفر';
+                return;
+            }
+            
+            var result = num1 / num2;
+            document.getElementById('divideResult').innerHTML = 'الناتج: ' + num1 + ' ÷ ' + num2 + ' = ' + result.toFixed(4).replace(/\.?0+$/, '');
+            
+            // عرض رسالة تهنئة إذا كانت النتيجة صحيحة
+            if (!isNaN(result)) {
+                celebrate();
+            }
+        }
+        
+        // تأثيرات التهنئة
+        function celebrate() {
+            // عرض رسالة التهنئة
+            document.getElementById('celebration').style.display = 'flex';
+            
+            // إنشاء الكونفيتي
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+        }
+        
+        function closeCelebration() {
+            document.getElementById('celebration').style.display = 'none';
+        }
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // ألوان متنوعة
+            const colors = ['#a18cd1', '#fad0c4', '#ff9a9e', '#fbc2eb', '#e91e63'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            confetti.style.backgroundColor = randomColor;
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = -10 + 'px';
+            confetti.style.width = (Math.random() * 10 + 5) + 'px';
+            confetti.style.height = confetti.style.width;
+            
+            document.body.appendChild(confetti);
+            
+            // إزالة الكونفيتي بعد انتهاء الحركة
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        // إضافة تأثيرات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.content-section, .interactive-tool, .practice');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+                      </html>
