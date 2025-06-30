@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القياس وتطبيقات العمليات - الصف السادس</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        :root {
+            --pink-light: #ff9a9e;
+            --pink-lighter: #fad0c4;
+            --purple-light: #a18cd1;
+            --pink-dark: #e91e63;
+            --pink-darker: #ad1457;
+            --blue-dark: #4b6cb7;
+            --blue-darker: #182848;
+            --green-dark: #2e7d32;
+            --green-light: #81c784;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffeef8 100%);
+            margin: 0;
+            padding: 0;
+            color: #555;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--green-light) 0%, var(--pink-lighter) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid var(--blue-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23fad0c4"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23fad0c4"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23fad0c4"></path></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: white;
+            color: var(--green-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .back-btn:hover {
+            background: var(--green-light);
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid #f8bbd0;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--green-light), var(--pink-lighter), var(--blue-dark));
+        }
+        
+        /* Lesson Title */
+        .lesson-title {
+            color: var(--green-dark);
+            text-align: center;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed var(--green-light);
+            font-size: 28px;
+            position: relative;
+        }
+        
+        .lesson-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-light), var(--blue-dark));
+            border-radius: 2px;
+        }
+        
+        /* Content Styles */
+        .content-section {
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            color: var(--blue-dark);
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-right: 15px;
+            border-right: 4px solid var(--green-light);
+        }
+        
+        /* Steps */
+        .steps {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid var(--green-light);
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            background: rgba(129, 199, 132, 0.1);
+        }
+        
+        .step-number {
+            background: var(--green-dark);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        /* Examples */
+        .example {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-right: 5px solid var(--green-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example::before {
+            content: "مثال";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--green-dark);
+            color: white;
+            padding: 5px 15px;
+            border-bottom-left-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .example-title {
+            color: var(--green-dark);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        /* Tables */
+        .conversion-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .conversion-table th, .conversion-table td {
+            border: 1px solid var(--green-light);
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .conversion-table th {
+            background-color: var(--green-light);
+            color: white;
+        }
+        
+        .conversion-table tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        
+        .conversion-table tr:hover {
+            background-color: rgba(129, 199, 132, 0.2);
+        }
+        
+        /* Practice */
+        .practice {
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid var(--blue-dark);
+        }
+        
+        .practice-title {
+            color: var(--blue-dark);
+            margin-top: 0;
+            text-align: center;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .practice-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-dark), var(--blue-darker));
+            border-radius: 3px;
+        }
+        
+        .exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--green-light), var(--pink-lighter));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(45deg, var(--pink-lighter), var(--green-light));
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Solution */
+        .solution {
+            display: none;
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px dashed var(--green-light);
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+        
+        .solution-title {
+            color: var(--green-dark);
+            margin-top: 0;
+            font-weight: bold;
+        }
+        
+        /* Interactive Tools */
+        .interactive-tool {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed #ba68c8;
+        }
+        
+        .interactive-title {
+            color: #7b1fa2;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        
+        select, input[type="number"] {
+            padding: 10px;
+            border: 2px solid var(--green-light);
+            border-radius: 8px;
+            width: 150px;
+            text-align: center;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        select:focus, input[type="number"]:focus {
+            border-color: var(--blue-dark);
+            box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.3);
+            outline: none;
+        }
+        
+        .result {
+            font-weight: bold;
+            color: var(--green-dark);
+            margin-top: 15px;
+            font-size: 18px;
+            min-height: 27px;
+        }
+        
+        /* Measurement Image */
+        .measurement-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--green-light);
+            transition: transform 0.3s;
+        }
+        
+        .measurement-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Floating Shapes */
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+        
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            background: var(--green-light);
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            top: 60%;
+            left: 70%;
+            width: 100px;
+            height: 100px;
+            background: var(--pink-light);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            top: 30%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background: var(--pink-lighter);
+            border-radius: 20% 80% 20% 80% / 80% 20% 80% 20%;
+            animation-delay: 4s;
+        }
+        
+        /* Animated Character */
+        .animated-girl {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            background: url('https://i.imgur.com/JfLbRqG.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Celebration */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--green-light);
+            opacity: 0;
+            z-index: 999;
+            animation: confetti 5s ease-in-out;
+        }
+        
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .celebration h2 {
+            color: var(--green-dark);
+            font-size: 36px;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .celebration img {
+            width: 200px;
+            height: auto;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-darker));
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%234b6cb7"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%234b6cb7"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%234b6cb7"></path></svg>');
+            background-size: cover;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animation {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .lesson-title {
+                font-size: 24px;
+            }
+            
+            .conversion-table {
+                font-size: 14px;
+            }
+            
+            .conversion-table th, .conversion-table td {
+                padding: 8px;
+            }
+            
+            .animated-girl {
+                width: 80px;
+                height: 80px;
+                right: 10px;
+                bottom: 10px;
+            }
+            
+            .celebration h2 {
+                font-size: 24px;
+                padding: 0 15px;
+            }
+            
+            .celebration img {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="header animation">
+        <button class="back-btn" onclick="window.location.href='index.html'">
+            <span>العودة</span>
+        </button>
+        <h1>الدرس الثالث: القياس وتطبيقات العمليات على الكسور العشرية</h1>
+    </div>
+
+    <div class="container animation">
+        <h2 class="lesson-title">تطبيقات عملية على الكسور العشرية في القياس</h2>
+        
+        <div class="content-section">
+            <p>تستخدم الكسور العشرية بكثرة في حياتنا اليومية، خاصة في القياسات المختلفة مثل الطول، الوزن، الحجم، والزمن. دعونا نتعلم كيفية تطبيق العمليات على الكسور العشرية في مواقف حياتية.</p>
+            
+            <img src="https://i.imgur.com/XwZQ9yF.jpg" alt="القياسات اليومية" class="measurement-image">
+            
+            <h3 class="section-title">تحويل الوحدات باستخدام الكسور العشرية</h3>
+            
+            <table class="conversion-table">
+                <tr>
+                    <th>التحويل</th>
+                    <th>المعامل</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td>من متر إلى سنتيمتر</td>
+                    <td>× 100</td>
+                    <td>1.5 م = 1.5 × 100 = 150 سم</td>
+                </tr>
+                <tr>
+                    <td>من كيلوجرام إلى جرام</td>
+                    <td>× 1000</td>
+                    <td>2.3 كجم = 2.3 × 1000 = 2300 جم</td>
+                </tr>
+                <tr>
+                    <td>من لتر إلى ملليلتر</td>
+                    <td>× 1000</td>
+                    <td>0.75 ل = 0.75 × 1000 = 750 مل</td>
+                </tr>
+                <tr>
+                    <td>من ساعة إلى دقيقة</td>
+                    <td>× 60</td>
+                    <td>1.5 ساعة = 1.5 × 60 = 90 دقيقة</td>
+                </tr>
+            </table>
+
+            <div class="example">
+                <h4 class="example-title">مثال 1: تحويل الوحدات</h4>
+                <p>إذا كان طول حبل 3.75 متر، فكم يساوي بالسنتيمتر؟</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">نعلم أن 1 متر = 100 سنتيمتر</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">لذا نضرب طول الحبل بالمتر في 100: 3.75 × 100</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">عند ضرب عدد عشري في 100 نحرك الفاصلة مكانين لليمين: 3.75 ← 375</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">إذاً: 3.75 م = 375 سم</div>
+                    </div>
+                </div>
+                
+                <p><strong>الجواب:</strong> 375 سنتيمتر</p>
+            </div>
+
+            <div class="example">
+                <h4 class="example-title">مثال 2: تطبيق عملي</h4>
+                <p>اشترت سارة 3.5 كيلوجرام من التفاح، و2.75 كيلوجرام من البرتقال، و1.25 كيلوجرام من الموز. كم مجموع ما اشترته بالجرام؟</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">نجمع الكميات أولاً بالكيلوجرام: 3.5 + 2.75 + 1.25</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">3.5 + 2.75 = 6.25</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">6.25 + 1.25 = 7.5 كيلوجرام</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">نحول الكيلوجرام إلى جرام: 7.5 × 1000 = 7500 جرام</div>
+                    </div>
+                </div>
+                
+                <p><strong>الجواب:</strong> 7500 جرام</p>
+            </div>
+        </div>
+
+        <div class="interactive-tool">
+            <h3 class="interactive-title">جرب بنفسك: محول الوحدات</h3>
+            <div style="margin: 20px 0;">
+                <input type="number" step="0.01" id="inputValue" placeholder="أدخل القيمة">
+                <select id="conversionType">
+                    <option value="mToCm">متر إلى سنتيمتر</option>
+                    <option value="kmToM">كيلومتر إلى متر</option>
+                    <option value="kgToG">كيلوجرام إلى جرام</option>
+                    <option value="lToMl">لتر إلى ملليلتر</option>
+                    <option value="hourToMin">ساعة إلى دقيقة</option>
+                </select>
+            </div>
+            <button class="btn" onclick="convertUnits()">تحويل</button>
+            <div id="conversionResult" class="result"></div>
+        </div>
+
+        <div class="practice">
+            <h3 class="practice-title">تمارين تطبيقية</h3>
+            
+            <div class="exercise">
+                <p>1) إذا كان طول سلك 4.8 متر، وقطع منه 3 قطع متساوية، فكم طول كل قطعة؟</p>
+                <button class="btn" onclick="showSolution(1)">عرض الحل</button>
+                <div id="solution1" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>طول كل قطعة = الطول الكلي ÷ عدد القطع = 4.8 ÷ 3</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">نقسم 4.8 ÷ 3</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">4 ÷ 3 = 1 والباقي 1</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">ننزل 8 فيصبح 18</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">18 ÷ 3 = 6</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">نضع الفاصلة في نفس مكانها في المقسوم: 1.6</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 1.6 متر</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>2) إذا كان سعر كيلو التفاح 2.75 دينار، فكم ثمن 3.5 كيلو؟</p>
+                <button class="btn" onclick="showSolution(2)">عرض الحل</button>
+                <div id="solution2" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>الثمن الكلي = الكمية × السعر = 3.5 × 2.75</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">نضرب 35 × 275 = 9625 (نتجاهل الفاصلة)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">عدد الأرقام بعد الفاصلة في 3.5 هو 1</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">عدد الأرقام بعد الفاصلة في 2.75 هو 2</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">المجموع = 1 + 2 = 3</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">نضع الفاصلة في الناتج 9625 بحيث يكون بعدها 3 أرقام: 9.625 دينار</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 9.625 دينار</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>3) إذا كان متوسط سرعة سيارة 85.5 كم/ساعة، فكم تقطع في 2.5 ساعة؟</p>
+                <button class="btn" onclick="showSolution(3)">عرض الحل</button>
+                <div id="solution3" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>المسافة = السرعة × الزمن = 85.5 × 2.5</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">نضرب 855 × 25 = 21375 (نتجاهل الفاصلة)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">عدد الأرقام بعد الفاصلة في 85.5 هو 1</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">عدد الأرقام بعد الفاصلة في 2.5 هو 1</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">المجموع = 1 + 1 = 2</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">نضع الفاصلة في الناتج 21375 بحيث يكون بعدها رقمين: 213.75 كم</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 213.75 كيلومتر</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>4) إذا كان طول صندوق 1.2 متر وعرضه 0.8 متر وارتفاعه 0.5 متر، فما حجمه؟</p>
+                <button class="btn" onclick="showSolution(4)">عرض الحل</button>
+                <div id="solution4" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>حجم الصندوق = الطول × العرض × الارتفاع = 1.2 × 0.8 × 0.5</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">أولاً نضرب 1.2 × 0.8</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">12 × 8 = 96</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">عدد الأرقام بعد الفاصلة: 1 + 1 = 2</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">1.2 × 0.8 = 0.96</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">ثم نضرب الناتج في 0.5: 0.96 × 0.5</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">96 × 5 = 480</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">عدد الأرقام بعد الفاصلة: 2 + 1 = 3</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">8</div>
+                            <div class="step-content">0.96 × 0.5 = 0.480 = 0.48 متر مكعب</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 0.48 متر مكعب</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <p>5) إذا كان عمر أحمد 12.5 سنة وعمر أخيه 8.75 سنة، فما الفرق بين عمرهما؟</p>
+                <button class="btn" onclick="showSolution(5)">عرض الحل</button>
+                <div id="solution5" class="solution">
+                    <h4 class="solution-title">الحل:</h4>
+                    <p>الفرق بين العمرين = 12.5 - 8.75</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">نكتب العددين بشكل عمودي مع مراعاة الفاصلة:</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">12.50<br>-8.75<br>-----</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">0 - 5 لا يمكن، نستلف 1 من خانة العشرات</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">10 - 5 = 5</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">4 - 7 لا يمكن، نستلف 1 من خانة الآحاد</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">14 - 7 = 7</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">1 - 8 لا يمكن، نستلف 1 من خانة العشرات</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">8</div>
+                            <div class="step-content">11 - 8 = 3</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">9</div>
+                            <div class="step-content">0 - 0 = 0</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">10</div>
+                            <div class="step-content">الناتج: 3.75 سنة</div>
+                        </div>
+                    </div>
+                    <p><strong>الجواب:</strong> 3.75 سنة</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animated-girl" id="animatedGirl" onclick="celebrate()"></div>
+
+    <div class="celebration" id="celebration">
+        <h2>أحسنتِ! أنتِ رائعة!</h2>
+        <img src="https://i.imgur.com/qJZtKlK.jpg" alt="تهنئة">
+        <button onclick="closeCelebration()" style="margin-top: 20px; padding: 10px 20px; background: #2e7d32; color: white; border: none; border-radius: 50px; cursor: pointer;">استمراري</button>
+    </div>
+
+    <div class="footer">
+        <p>إعداد: د. غادة لنيل شهادة الماستر</p>
+        <p>© 2023 منصة تعليمية مبتكرة</p>
+    </div>
+
+    <script>
+        // حل التمارين وعرض الحلول
+        function showSolution(num) {
+            var solution = document.getElementById('solution' + num);
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+            } else {
+                solution.style.display = 'block';
+                
+                // عرض رسالة تشجيعية عشوائية
+                const messages = [
+                    "أحسنتِ! هذا رائع!",
+                    "إجابة صحيحة، أنتِ ذكية!",
+                    "استمري هكذا، أنتِ متميزة!",
+                    "عمل رائع! يمكنكِ حل الباقي أيضاً",
+                    "برافو! هذه الإجابة الصحيحة",
+                    "أنتِ تستحقين نجمة ذهبية!",
+                    "إجابة ممتازة! أنتِ تفهمين جيداً"
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                
+                // إنشاء عنصر الرسالة
+                const messageElement = document.createElement('div');
+                messageElement.textContent = randomMessage;
+                messageElement.style.position = 'fixed';
+                messageElement.style.bottom = '200px';
+                messageElement.style.right = '50px';
+                messageElement.style.backgroundColor = '#e8f5e9';
+                messageElement.style.color = '#2e7d32';
+                messageElement.style.padding = '10px 20px';
+                messageElement.style.borderRadius = '50px';
+                messageElement.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+                messageElement.style.zIndex = '1000';
+                messageElement.style.fontWeight = 'bold';
+                messageElement.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s forwards';
+                
+                document.body.appendChild(messageElement);
+                
+                // إزالة الرسالة بعد 3 ثوان
+                setTimeout(() => {
+                    messageElement.style.animation = 'fadeOut 0.5s forwards';
+                    setTimeout(() => {
+                        messageElement.remove();
+                    }, 500);
+                }, 3000);
+            }
+        }
+        
+        // محول الوحدات
+        function convertUnits() {
+            var value = parseFloat(document.getElementById('inputValue').value);
+            var conversionType = document.getElementById('conversionType').value;
+            var result = 0;
+            var conversionText = '';
+            
+            if (isNaN(value)) {
+                document.getElementById('conversionResult').innerHTML = 'الرجاء إدخال قيمة صحيحة';
+                return;
+            }
+            
+            switch(conversionType) {
+                case 'mToCm':
+                    result = value * 100;
+                    conversionText = value + ' متر = ' + result + ' سنتيمتر';
+                    break;
+                case 'kmToM':
+                    result = value * 1000;
+                    conversionText = value + ' كيلومتر = ' + result + ' متر';
+                    break;
+                case 'kgToG':
+                    result = value * 1000;
+                    conversionText = value + ' كيلوجرام = ' + result + ' جرام';
+                    break;
+                case 'lToMl':
+                    result = value * 1000;
+                    conversionText = value + ' لتر = ' + result + ' ملليلتر';
+                    break;
+                case 'hourToMin':
+                    result = value * 60;
+                    conversionText = value + ' ساعة = ' + result + ' دقيقة';
+                    break;
+            }
+            
+            document.getElementById('conversionResult').innerHTML = conversionText;
+            
+            // عرض رسالة تهنئة إذا كانت النتيجة صحيحة
+            if (!isNaN(result)) {
+                celebrate();
+            }
+        }
+        
+        // تأثيرات التهنئة
+        function celebrate() {
+            // عرض رسالة التهنئة
+            document.getElementById('celebration').style.display = 'flex';
+            
+            // إنشاء الكونفيتي
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+        }
+        
+        function closeCelebration() {
+            document.getElementById('celebration').style.display = 'none';
+        }
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // ألوان متنوعة
+            const colors = ['#81c784', '#fad0c4', '#ff9a9e', '#fbc2eb', '#e91e63'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            confetti.style.backgroundColor = randomColor;
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = -10 + 'px';
+            confetti.style.width = (Math.random() * 10 + 5) + 'px';
+            confetti.style.height = confetti.style.width;
+            
+            document.body.appendChild(confetti);
+            
+            // إزالة الكونفيتي بعد انتهاء الحركة
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        // إضافة تأثيرات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.content-section, .interactive-tool, .practice');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+  </html>
